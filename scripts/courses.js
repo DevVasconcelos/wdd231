@@ -68,6 +68,7 @@ const courses = [
     completed: false,
   },
 ];
+
 function showAllCourses() {
   displayCourses(courses);
 }
@@ -86,35 +87,36 @@ function displayCourses(filteredCourses) {
   const courseList = document.getElementById("courses-list");
   courseList.innerHTML = "";
 
-  let totalCredits = 0;
-  filteredCourses.forEach((course) => {
+  const totalCredits = filteredCourses.reduce((sum, course) => {
     const courseItem = document.createElement("div");
     courseItem.classList.add("course-item");
     if (course.completed) courseItem.classList.add("completed");
 
-    // Exibe as informações principais de cada curso
     courseItem.innerHTML = `
       <h3>${course.subject} ${course.number}</h3>
       <p>${course.title}</p>
       <p>Credits: ${course.credits}</p>
     `;
     courseList.appendChild(courseItem);
-    totalCredits += course.credits;
-  });
+
+    return sum + course.credits;
+  }, 0);
 
   document.getElementById("total-credits").textContent = totalCredits;
 }
 
-// Adiciona o evento para mostrar todos os cursos ao carregar a página
 document.addEventListener("DOMContentLoaded", showAllCourses);
-
-const button = document.getElementById("course-buttons");
 
 buttonContainer.addEventListener("click", function (event) {
   if (event.target.tagName === "BUTTON") {
-    document.querySelectorAll("#course-buttons button").forEach((btn) => {
-      btn.classList.remove("active");
-    });
-    event.target.classList.add("active");
+    if (event.target.classList.contains("active")) {
+      event.target.classList.remove("active");
+      showAllCourses();
+    } else {
+      document.querySelectorAll("#course-buttons button").forEach((btn) => {
+        btn.classList.remove("active");
+      });
+      event.target.classList.add("active");
+    }
   }
 });
