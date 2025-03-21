@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="WDD 231 - Web Frontend Development - Ben-hur Vasconcelos. Home page."
+    />
+    <link rel="icon" href="images/favicon.ico" />
+    <meta name="author" content="Ben-hur Vasconcelos" />
+    <title>WDD 231 - Chamber of Commerce - Ben-hur Vasconcelos</title>
+    <link rel="stylesheet" href="styles/home.css" />
+    <script src="scripts/menu.js" defer></script>
+    <script src="scripts/home.js" defer></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      property="og:title"
+      content="Sunridge Chamber of Commerce - Ben-hur Vasconcelos"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./images/logo.webp" />
+    <meta property="og:url" content="https://sunridgechamber.com" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="flex">
+        <img
+          src="./images/logo.webp"
+          alt="Sunridge Chamber of Commerce"
+          width="100px"
+        />
+        <h1>Sunridge</h1>
+      </div>
+      <nav>
+        <button id="menu-toggle">☰</button>
+        <ul id="menu">
+          <li>
+            <a href="index.html"><h2>Home</h2></a>
+          </li>
+          <li>
+            <a href="directory.html"><h2>Directory</h2></a>
+          </li>
+          <li>
+            <a href="join.html"><h2>Join</h2></a>
+          </li>
+          <li>
+            <a href="discover.html"><h2>Discover</h2></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <img src="images/hero-image.png" alt="Chamber of Commerce" />
+        <div class="cta">
+          <a href="#" class="cta-link">Join the Chamber</a>
+        </div>
+      </section>
+
+      <!-- Current Events Section -->
+      <section class="events">
+        <h2>Current Events</h2>
+        <ul>
+          <li>
+            <h3>Event 1: Networking Night</h3>
+            <p>
+              Join us for an exciting networking event with local businesses!
+            </p>
+          </li>
+          <li>
+            <h3>Event 2: Annual Trade Show</h3>
+            <p>
+              Don't miss the annual trade show, showcasing local products and
+              services!
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Weather Section -->
+      <section class="weather">
+        <div>
+          <h2>Current Weather</h2>
+          <img src="images/cloudy.png" alt="cloudy" width="30px" />
+        </div>
+        <p id="weather-description"></p>
+        <p id="weather-info">Loading weather data...</p>
+        <ul id="forecast-list"></ul>
+      </section>
+
+      <!-- Company Spotlights Section -->
+      <section class="spotlights">
+        <h2>Company Spotlights</h2>
+        <section id="spotlight-container"></section>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; <span id="year"></span> Ben-hur Vasconcelos, Brazil</p>
+      <p id="lastModified"></p>
+    </footer>
+  </body>
+</html>
